@@ -1,0 +1,114 @@
+
+<section class="wrapper site-min-height">
+	<section class="panel">
+	    <header class="panel-heading">${table.lowerStartClassName}列表
+	       	<div class="btn-group pull-right">
+	           <button id="add${table.lowerStartClassName}" data-title="添加${table.lowerStartClassName}" data-url="${startTag_}ctx${endTag_}/${table.lowerStartClassName}/add" class="btn btn-success">新建${table.lowerStartClassName}<i class="fa fa-plus"></i></button>
+	         </div>
+	    </header>
+	    <div class="panel-body">
+	    	<form id="editable-sample-query" >
+	         	<div class="clearfix">
+					<div class="col-md-2"><input name="keyword" type="text" placeholder="请输入关键字" class="form-control" /></div>
+		     	  	<div class="col-md-4">
+					    <div class="input-group input-large" data-date-format="mm/dd/yyyy">
+					        <input id="dpd1" type="text" class="form-control" placeholder="开始时间"  name="startDate">
+					        <span class="input-group-addon">至</span>
+					        <input id="dpd2" type="text" class="form-control " placeholder="结束时间"  name="dateEnd">
+					    </div>
+					</div>
+					<div class="col-md-2">
+						 <select id="selectProvinceId" data-type="province" class="selectpicker" name="provinceId" data-style="btn-info">
+						    <option value="">不限</option>
+						    <c:forEach var="area" items="${startTag_}areas${endTag_}">
+						    	<option value="${startTag_}area.id${endTag_}">${startTag_}area.name${endTag_}</option>
+						    </c:forEach>
+						 </select>
+					</div>
+					<div class="col-md-2">
+						<button data-opt="crud"  class="form-control btn-success">查询</button>
+					</div>
+					<div class="col-md-2">
+						<button data-opt="excel"  data-url="${startTag_}ctx${endTag_}/${table.lowerStartClassName}/excel" data-param="用户管理" class="form-control btn-success">导出EXCEL</button>
+				    </div>
+		      	</div>
+		      	<div class="clearfix" style="margin-top: 10px">
+		      		
+		      	</div>
+      	  	</form>
+        	<div class="adv-table editable-table ">
+				<table id="editable-sample" data-action="${startTag_}ctx${endTag_}/${table.lowerStartClassName}/find" data-datatable="true"  class="table table-striped table-hover table-bordered">
+				  	<thead>
+					  	<tr>
+					  		<th data-title="id" >ID</th>
+					  		<% for(each in table.columns) { %>
+							<th data-title="${each.lowerStartFieldName}" >${each.remarks}</th>
+							<% } %>
+						  	<th data-crud="true" data-title='{"uid":"id"}' >操作
+			      			  <div style="display: none;" class="center hidden-phone">
+			      			  	<span data-type="info" data-title="详情"  data-url="${startTag_}ctx${endTag_}/${table.lowerStartClassName}/info" data-id=":uid" class="label label-danger label-mini">详情</span>
+			      			  	<span data-type="href" data-title="状态"  data-url="${startTag_}ctx${endTag_}/${table.lowerStartClassName}/update" data-id=":uid" class="label label-danger label-mini">状态</span>
+			      			  	<span data-type="update" data-title="更新" data-url="${startTag_}ctx${endTag_}/${table.lowerStartClassName}/update"  data-id=":uid" class="label label-danger label-mini">更新</span>
+							  </div> 
+		      		      	</th>
+					  	</tr>
+				  	</thead>
+				  	<tbody>
+				  	</tbody>
+			  	</table>
+        	</div>
+    	</div>
+	</section>
+</section>
+
+
+<script>
+
+$(document).ready(function() {
+	init_page_datatable();
+});
+
+$(function(){
+	$("span[data-type='${table.lowerStartClassName}Update']").click(function(){
+		var me=this;
+		$.confirm({
+		    confirmButton: "保   存",
+		    cancelButton: "取  消",
+		    content: 'url:'+$(me).data("url"),
+		    title: $(me).data("title")||'提示',
+		    contentLoaded: function(data, status, xhr){
+		        var that = this;
+		        setTimeout(function(){
+		        	if(status=="error"){
+		        		that.setContent('加载数据错误: '+data);
+		        	}
+		        }, 1000);
+		    },confirm: function(){
+		    	$.ajax({  
+					url:'${startTag_}ctx${endTag_}/${table.lowerStartClassName}/update',  
+					data:{
+					<% for(each in table.columns) { %>
+						${each.lowerStartFieldName}:$("#${each.lowerStartFieldName}").val(),							
+					<% } %>
+						id:$("#id").val()
+					},  
+					dataType:'json',  
+					success:function(response){
+						if(response.code==0){
+							 
+						}else{
+						    $.confirm({cancelButton: "关   闭",title: '提示!',content: (me).data("title")+"错误!"||"保存数据错误!"});
+						}
+					}  
+				});  
+		    	return true;
+		    },cancel: function(){
+		    	return true;
+		    }
+		}); 
+	});
+
+    jQuery.datepicker("dpd1","dpd2");
+    
+});
+</script>

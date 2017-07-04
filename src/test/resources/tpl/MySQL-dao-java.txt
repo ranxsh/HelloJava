@@ -1,0 +1,28 @@
+package ${package}.dao;
+
+import ${package}.entity.${table.upperStartClassName };
+import java.util.List;
+
+public interface ${table.upperStartClassName }Dao {
+
+    public int insert(${table.upperStartClassName} entity);
+
+    public int insertBatch(List<${table.upperStartClassName}> entityList);
+
+<% if( table.keys != null && table.keys.~size > 0 ){%>
+    public ${table.upperStartClassName} selectByPrimaryKey(${table.keys[0].javaType} ${table.keys[0].lowerStartFieldName});
+
+    public List<${table.upperStartClassName}> selectByPrimaryKeyList(List<${table.keys[0].javaType}> ${table.keys[0].lowerStartFieldName}List);
+<% } %>
+
+    public List<${table.upperStartClassName}> findListByEntity(${table.upperStartClassName} entity);
+
+<% if( table.keys != null && table.keys.~size > 0 ){%>
+    public int updatePrimaryKey(${table.upperStartClassName} entity);
+
+    public int deleteByPrimaryKey(${table.keys[0].javaType} ${table.keys[0].lowerStartFieldName});
+<% } %>
+
+    public int deleteByEntity(${table.upperStartClassName} entity);
+
+}

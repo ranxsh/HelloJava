@@ -1,0 +1,107 @@
+package ${package}.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.common.filter.AdminUserId;
+import com.common.filter.AdminUserPermission;
+import com.magic.common.BaseController;
+import com.magic.common.Page;
+import com.magic.common.Response;
+import com.magic.common.ResponseUtil;
+import ${package}.entity.${table.upperStartClassName};
+import ${package}.service.${table.upperStartClassName}Service;
+
+@Controller
+@RequestMapping(value = "${table.lowerStartClassName}")
+public class ${table.upperStartClassName}Controller extends BaseController {
+
+	private static final Logger logger=Logger.getLogger(${table.upperStartClassName}Controller.class);
+	
+	@Autowired
+	private ${table.upperStartClassName}Service ${table.lowerStartClassName}Service;
+	
+	@AdminUserPermission
+	@RequestMapping(value = "index", method = RequestMethod.GET)
+	public String index(HttpServletRequest request) {
+		return "/admin/${table.lowerStartClassName}/${table.lowerStartClassName}-list";
+	}
+	
+	@AdminUserPermission
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public String update(HttpServletRequest request,Long id) {
+		request.setAttribute("${table.lowerStartClassName}", ${table.lowerStartClassName}Service.get(id));
+		return "/admin/${table.lowerStartClassName}/${table.lowerStartClassName}-update";
+	}
+	
+	@AdminUserPermission
+	@RequestMapping(value = "info", method = RequestMethod.GET)
+	public String info(HttpServletRequest request,Long id) {
+		request.setAttribute("${table.lowerStartClassName}", ${table.lowerStartClassName}Service.get(id));
+		return "/admin/${table.lowerStartClassName}/${table.lowerStartClassName}-info";
+	}
+	
+	@AdminUserPermission
+	@RequestMapping(value = "find", method = RequestMethod.POST)
+	@ResponseBody
+	public Response find(@AdminUserId Long adminUserId,HttpServletRequest request){
+		try {
+			Map<String, Object> params=getParamMap(request);
+			Page<${table.upperStartClassName}> datas=${table.lowerStartClassName}Service.page(params);
+			return ResponseUtil.ok(datas);
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		return ResponseUtil.error();
+	}
+	
+	@AdminUserPermission()
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	@ResponseBody
+	public Response update(HttpServletRequest request,${table.upperStartClassName} ${table.lowerStartClassName}){
+		try {
+			${table.lowerStartClassName}Service.update(${table.lowerStartClassName});
+			return ResponseUtil.ok();
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		return ResponseUtil.error();
+	}
+	
+	@AdminUserPermission()
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	@ResponseBody
+	public Response add(HttpServletRequest request,${table.upperStartClassName} ${table.lowerStartClassName}){
+		try {
+			${table.lowerStartClassName}Service.insert(${table.lowerStartClassName});
+			return ResponseUtil.ok();
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		return ResponseUtil.error();
+	}
+
+ 	@AdminUserPermission
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Response delete(@AdminUserId Long adminUserId,HttpServletRequest request){
+		try {
+			HashMap<String, Object> param=getParamMap(request);
+			${table.lowerStartClassName}Service.remove(param);
+			return ResponseUtil.ok();
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		return ResponseUtil.error();
+	}
+
+}

@@ -1,0 +1,49 @@
+package ${package}.entity;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+public class ${table.upperStartClassName} {
+
+	private static final long serialVersionUID = 1L;
+
+	<%for(column in table.keys) {%>
+	/**
+     * ${column.remarks}
+     */
+    private ${column.javaType} ${column.lowerStartFieldName};
+	<% } %>
+
+    <% for(each in table.columns) { %>
+	/**
+	 * ${each.remarks}
+	 */
+    private ${each.javaType} ${each.lowerStartFieldName};
+    <% } %>
+
+	<%for(each in table.keys) {%>
+    public ${each.javaType} get${each.upperStartFieldName}() {
+        return this.${each.lowerStartFieldName};
+    }
+    public void set${each.upperStartFieldName}(${each.javaType} ${each.lowerStartFieldName}) {
+        this.${each.lowerStartFieldName} = ${each.lowerStartFieldName};
+    }
+	<% } %>
+    <% for(each in table.columns) { %>
+
+    public ${each.javaType} get${each.upperStartFieldName}() {
+        return this.${each.lowerStartFieldName};
+    }
+    public void set${each.upperStartFieldName}(${each.javaType} ${each.lowerStartFieldName}) {
+        this.${each.lowerStartFieldName} = ${each.lowerStartFieldName};
+    }
+    <%}%>
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+}

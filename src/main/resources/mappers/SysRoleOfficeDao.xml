@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xsr.sys.dao.SysRoleOfficeDao">
+    // resultMap
+  	<resultMap id="BaseResultMap" type="com.xsr.sys.entity.SysRoleOffice" >
+  	    <result column="office_id" property="officeId" jdbcType="VARCHAR" />
+  	    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
+  	</resultMap>
+    // Base_Column_List
+    <sql id="Base_Column_List">
+        office_id,
+        role_id,
+    </sql>
+    // whereSql
+    <sql id="whereSql">
+    </sql>
+    //insert
+    <insert id="insert" parameterType="com.xsr.sys.entity.SysRoleOffice">
+    insert into sys_role_office(
+            <trim prefix="" prefixOverrides=",">
+            	<if test="officeId != null">
+            	,office_id
+            	</if>
+            	<if test="roleId != null">
+            	,role_id
+            	</if>
+            </trim>
+    )values(
+            <trim prefix="" prefixOverrides=",">
+            	<if test="officeId != null">
+            	,#{officeId}
+            	</if>
+            	<if test="roleId != null">
+            	,#{roleId}
+            	</if>
+            </trim>
+    )
+    </insert>
+    // insertBatch
+    <insert id="insertBatch"  parameterType="list">
+    insert into sys_role_office(
+            <trim prefix="" prefixOverrides=",">
+            	<if test="officeId != null">
+            	,office_id
+            	</if>
+            	<if test="roleId != null">
+            	,role_id
+            	</if>
+            </trim>
+    )values
+    <foreach collection="list" item="item" index="index" separator=",">
+    (
+        <trim prefix="" prefixOverrides=",">
+            	<if test="officeId != null">
+            	,#{item.officeId}
+            	</if>
+            	<if test="roleId != null">
+            	,#{item.roleId}
+            	</if>
+        </trim>
+    ）
+    </foreach>
+    </insert>
+    // selectByPrimaryKey
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from sys_role_office
+        where office_id = #{officeId,jdbcType=VARCHAR}
+    </select>
+    // selectByPrimaryKeyList
+    <select id="selectByPrimaryKeyList" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from sys_role_office
+        where office_id in
+        <foreach collection="list" item="item" index="index"  open="(" close=")" separator=",">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+    </select>
+    // findListByEntity
+    <select id="findListByEntity" parameterType="com.xsr.sys.entity.SysRoleOffice" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from sys_role_office
+        where 1 = 1
+        <include refid="whereSql" />
+    </select>
+    //updatePrimaryKey
+    <update id="updatePrimaryKey" parameterType="com.xsr.sys.entity.SysRoleOffice">
+    update sys_role_office set
+            <trim prefix="" prefixOverrides=",">
+            	<if test="officeId != null">
+            	,office_id = #{officeId}
+            	</if>
+            	<if test="roleId != null">
+            	,role_id = #{roleId}
+            	</if>
+            </trim>
+        where office_id = #{officeId,jdbcType=VARCHAR}
+    </update>
+    //deleteByPrimaryKey
+    <delete id="deleteByPrimaryKey" parameterType="com.xsr.sys.entity.SysRoleOffice">
+        delete from kq_emp_info
+        where office_id = #{officeId,jdbcType=VARCHAR}
+    </delete>
+    //deleteByEntity
+    <delete id="deleteByEntity" parameterType="com.xsr.sys.entity.SysRoleOffice">
+        delete from kq_emp_info
+        where 1 = 1
+        <include refid="whereSql" />
+    </delete>
+	<!--The user defined SQL!-->
+  	
+  	
+  	<!--The user defined SQL!-->
+
+</mapper>

@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+	    <meta http-equiv="pragma" content="no-cache">  
+	    <meta http-equiv="cache-control" content="no-cache">  
+	    <meta http-equiv="expires" content="0">  
+	    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />  
+	</head>
+	<body>
+		<div class="row">
+		<% for(each in table.columns) { %>
+		<% if(each.javaType == "String"){%>
+			<input id="${each.lowerStartFieldName}" value="${startTag_}${table.lowerStartClassName}.${each.lowerStartFieldName}${endTag_}"  type="text" placeholder="${each.remarks}" class="form-control" name="${each.lowerStartFieldName}"/>
+		<% } %>
+		<%if(each.javaType == "Integer" || each.javaType == "Long" || each.javaType == "Double"){%>
+			<input id="${each.lowerStartFieldName}" value="${startTag_}${table.lowerStartClassName}.${each.lowerStartFieldName}${endTag_}"  type="text" placeholder="${each.remarks}" class="form-control" name="${each.lowerStartFieldName}"/>
+		<% } %>
+		<%if(each.javaType == "Date"){%>
+			<input id="${each.lowerStartFieldName}" value="${startTag_}${table.lowerStartClassName}.${each.lowerStartFieldName}${endTag_}"  type="text" placeholder="${each.remarks}" class="form-control" name="${each.lowerStartFieldName}"/>
+		<% } %>
+		<% } %>
+		</div>
+	</body>
+</html>

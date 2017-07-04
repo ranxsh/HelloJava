@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xsr.sys.dao.SysRoleDao">
+    // resultMap
+  	<resultMap id="BaseResultMap" type="com.xsr.sys.entity.SysRole" >
+  	    <result column="id" property="id" jdbcType="VARCHAR" />
+  	    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  	    <result column="role_type" property="roleType" jdbcType="VARCHAR" />
+  	    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  	    <result column="enname" property="enname" jdbcType="VARCHAR" />
+  	    <result column="office_id" property="officeId" jdbcType="VARCHAR" />
+  	    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+  	    <result column="useable" property="useable" jdbcType="VARCHAR" />
+  	    <result column="is_sys" property="isSys" jdbcType="VARCHAR" />
+  	    <result column="name" property="name" jdbcType="VARCHAR" />
+  	    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  	    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+  	    <result column="data_scope" property="dataScope" jdbcType="CHAR" />
+  	    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+  	</resultMap>
+    // Base_Column_List
+    <sql id="Base_Column_List">
+        id,
+        del_flag,
+        role_type,
+        update_date,
+        enname,
+        office_id,
+        create_by,
+        useable,
+        is_sys,
+        name,
+        create_date,
+        update_by,
+        data_scope,
+        remarks
+    </sql>
+    // whereSql
+    <sql id="whereSql">
+        and del_flag = #{delFlag}
+        and role_type = #{roleType}
+        and update_date = #{updateDate}
+        and enname = #{enname}
+        and office_id = #{officeId}
+        and create_by = #{createBy}
+        and useable = #{useable}
+        and is_sys = #{isSys}
+        and name = #{name}
+        and create_date = #{createDate}
+        and update_by = #{updateBy}
+        and data_scope = #{dataScope}
+        and remarks = #{remarks}
+    </sql>
+    //insert
+    <insert id="insert" parameterType="com.xsr.sys.entity.SysRole">
+    insert into sys_role(
+            <trim prefix="" prefixOverrides=",">
+            	<if test="id != null">
+            	,id
+            	</if>
+            	<if test="delFlag != null">
+            	,del_flag
+            	</if>
+            	<if test="roleType != null">
+            	,role_type
+            	</if>
+            	<if test="updateDate != null">
+            	,update_date
+            	</if>
+            	<if test="enname != null">
+            	,enname
+            	</if>
+            	<if test="officeId != null">
+            	,office_id
+            	</if>
+            	<if test="createBy != null">
+            	,create_by
+            	</if>
+            	<if test="useable != null">
+            	,useable
+            	</if>
+            	<if test="isSys != null">
+            	,is_sys
+            	</if>
+            	<if test="name != null">
+            	,name
+            	</if>
+            	<if test="createDate != null">
+            	,create_date
+            	</if>
+            	<if test="updateBy != null">
+            	,update_by
+            	</if>
+            	<if test="dataScope != null">
+            	,data_scope
+            	</if>
+            	<if test="remarks != null">
+            	,remarks
+            	</if>
+            </trim>
+    )values(
+            <trim prefix="" prefixOverrides=",">
+            	<if test="id != null">
+            	,#{id}
+            	</if>
+            	<if test="delFlag != null">
+            	,#{delFlag}
+            	</if>
+            	<if test="roleType != null">
+            	,#{roleType}
+            	</if>
+            	<if test="updateDate != null">
+            	,#{updateDate}
+            	</if>
+            	<if test="enname != null">
+            	,#{enname}
+            	</if>
+            	<if test="officeId != null">
+            	,#{officeId}
+            	</if>
+            	<if test="createBy != null">
+            	,#{createBy}
+            	</if>
+            	<if test="useable != null">
+            	,#{useable}
+            	</if>
+            	<if test="isSys != null">
+            	,#{isSys}
+            	</if>
+            	<if test="name != null">
+            	,#{name}
+            	</if>
+            	<if test="createDate != null">
+            	,#{createDate}
+            	</if>
+            	<if test="updateBy != null">
+            	,#{updateBy}
+            	</if>
+            	<if test="dataScope != null">
+            	,#{dataScope}
+            	</if>
+            	<if test="remarks != null">
+            	,#{remarks}
+            	</if>
+            </trim>
+    )
+    </insert>
+    // insertBatch
+    <insert id="insertBatch"  parameterType="list">
+    insert into sys_role(
+            <trim prefix="" prefixOverrides=",">
+            	<if test="id != null">
+            	,id
+            	</if>
+            	<if test="delFlag != null">
+            	,del_flag
+            	</if>
+            	<if test="roleType != null">
+            	,role_type
+            	</if>
+            	<if test="updateDate != null">
+            	,update_date
+            	</if>
+            	<if test="enname != null">
+            	,enname
+            	</if>
+            	<if test="officeId != null">
+            	,office_id
+            	</if>
+            	<if test="createBy != null">
+            	,create_by
+            	</if>
+            	<if test="useable != null">
+            	,useable
+            	</if>
+            	<if test="isSys != null">
+            	,is_sys
+            	</if>
+            	<if test="name != null">
+            	,name
+            	</if>
+            	<if test="createDate != null">
+            	,create_date
+            	</if>
+            	<if test="updateBy != null">
+            	,update_by
+            	</if>
+            	<if test="dataScope != null">
+            	,data_scope
+            	</if>
+            	<if test="remarks != null">
+            	,remarks
+            	</if>
+            </trim>
+    )values
+    <foreach collection="list" item="item" index="index" separator=",">
+    (
+        <trim prefix="" prefixOverrides=",">
+            	<if test="id != null">
+            	,#{item.id}
+            	</if>
+            	<if test="delFlag != null">
+            	,#{item.delFlag}
+            	</if>
+            	<if test="roleType != null">
+            	,#{item.roleType}
+            	</if>
+            	<if test="updateDate != null">
+            	,#{item.updateDate}
+            	</if>
+            	<if test="enname != null">
+            	,#{item.enname}
+            	</if>
+            	<if test="officeId != null">
+            	,#{item.officeId}
+            	</if>
+            	<if test="createBy != null">
+            	,#{item.createBy}
+            	</if>
+            	<if test="useable != null">
+            	,#{item.useable}
+            	</if>
+            	<if test="isSys != null">
+            	,#{item.isSys}
+            	</if>
+            	<if test="name != null">
+            	,#{item.name}
+            	</if>
+            	<if test="createDate != null">
+            	,#{item.createDate}
+            	</if>
+            	<if test="updateBy != null">
+            	,#{item.updateBy}
+            	</if>
+            	<if test="dataScope != null">
+            	,#{item.dataScope}
+            	</if>
+            	<if test="remarks != null">
+            	,#{item.remarks}
+            	</if>
+        </trim>
+    ）
+    </foreach>
+    </insert>
+    // selectByPrimaryKey
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from sys_role
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    // selectByPrimaryKeyList
+    <select id="selectByPrimaryKeyList" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from sys_role
+        where id in
+        <foreach collection="list" item="item" index="index"  open="(" close=")" separator=",">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+    </select>
+    // findListByEntity
+    <select id="findListByEntity" parameterType="com.xsr.sys.entity.SysRole" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from sys_role
+        where 1 = 1
+        <include refid="whereSql" />
+    </select>
+    //updatePrimaryKey
+    <update id="updatePrimaryKey" parameterType="com.xsr.sys.entity.SysRole">
+    update sys_role set
+            <trim prefix="" prefixOverrides=",">
+            	<if test="id != null">
+            	,id = #{id}
+            	</if>
+            	<if test="delFlag != null">
+            	,del_flag = #{delFlag}
+            	</if>
+            	<if test="roleType != null">
+            	,role_type = #{roleType}
+            	</if>
+            	<if test="updateDate != null">
+            	,update_date = #{updateDate}
+            	</if>
+            	<if test="enname != null">
+            	,enname = #{enname}
+            	</if>
+            	<if test="officeId != null">
+            	,office_id = #{officeId}
+            	</if>
+            	<if test="createBy != null">
+            	,create_by = #{createBy}
+            	</if>
+            	<if test="useable != null">
+            	,useable = #{useable}
+            	</if>
+            	<if test="isSys != null">
+            	,is_sys = #{isSys}
+            	</if>
+            	<if test="name != null">
+            	,name = #{name}
+            	</if>
+            	<if test="createDate != null">
+            	,create_date = #{createDate}
+            	</if>
+            	<if test="updateBy != null">
+            	,update_by = #{updateBy}
+            	</if>
+            	<if test="dataScope != null">
+            	,data_scope = #{dataScope}
+            	</if>
+            	<if test="remarks != null">
+            	,remarks = #{remarks}
+            	</if>
+            </trim>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    //deleteByPrimaryKey
+    <delete id="deleteByPrimaryKey" parameterType="com.xsr.sys.entity.SysRole">
+        delete from kq_emp_info
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    //deleteByEntity
+    <delete id="deleteByEntity" parameterType="com.xsr.sys.entity.SysRole">
+        delete from kq_emp_info
+        where 1 = 1
+        <include refid="whereSql" />
+    </delete>
+	<!--The user defined SQL!-->
+  	
+  	
+  	<!--The user defined SQL!-->
+
+</mapper>

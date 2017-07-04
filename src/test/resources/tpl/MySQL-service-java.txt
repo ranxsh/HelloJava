@@ -1,0 +1,21 @@
+package ${package}.service;
+
+import ${package}.entity.${table.upperStartClassName};
+import ${package}.dao.${table.upperStartClassName}Dao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.magic.common.MybatisDao;
+import com.magic.common.BaseService;
+
+@Service("${table.lowerStartClassName}Service")
+public class ${table.upperStartClassName}Service extends BaseService<${table.upperStartClassName }, Long> {
+    
+    @Autowired
+	private ${table.upperStartClassName}Dao ${table.lowerStartClassName }Dao;
+
+	@Override
+	public MybatisDao<${table.upperStartClassName }, Long> getEntityDao() {
+		return ${table.lowerStartClassName }Dao;
+	}
+    
+}
