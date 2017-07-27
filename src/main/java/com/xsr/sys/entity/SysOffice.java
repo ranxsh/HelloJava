@@ -11,102 +11,94 @@ public class SysOffice {
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * 编号
+     * 
      */
     private String id;
 
 	/**
-	 * 删除标记
+	 * 
 	 */
     private String delFlag;
 	/**
-	 * 区域编码
+	 * 
 	 */
     private String code;
 	/**
-	 * 联系地址
+	 * 
 	 */
     private String address;
 	/**
-	 * 副负责人
+	 * 
 	 */
-    private String deputyPerson;
+    private String sort;
 	/**
-	 * 排序
-	 */
-    private BigDecimal sort;
-	/**
-	 * 主负责人
-	 */
-    private String primaryPerson;
-	/**
-	 * 所有父级编号
+	 * 
 	 */
     private String parentIds;
 	/**
-	 * 归属区域
+	 * 
 	 */
     private String areaId;
 	/**
-	 * 机构类型
+	 * 
 	 */
     private String type;
 	/**
-	 * 邮政编码
+	 * 
 	 */
     private String zipCode;
 	/**
-	 * 更新时间
+	 * 
 	 */
-    private Date updateDate;
+    private String updateDate;
 	/**
-	 * 负责人
+	 * 
 	 */
     private String master;
 	/**
-	 * 创建者
+	 * 
 	 */
     private String createBy;
 	/**
-	 * 电话
+	 * 
+	 */
+    private String useable;
+	/**
+	 * 
 	 */
     private String phone;
 	/**
-	 * 父级编号
+	 * 
 	 */
     private String parentId;
 	/**
-	 * 机构等级
+	 * 
 	 */
     private String grade;
 	/**
-	 * 名称
+	 * 
 	 */
     private String name;
 	/**
-	 * 传真
+	 * 
 	 */
     private String fax;
 	/**
-	 * 创建时间
+	 * 
 	 */
-    private Date createDate;
+    private String createDate;
 	/**
-	 * 更新者
+	 * 
 	 */
     private String updateBy;
 	/**
-	 * 邮箱
+	 * 
 	 */
     private String email;
 	/**
-	 * 备注信息
+	 * 
 	 */
     private String remarks;
-	/**
-	 * 是否启用
-	 */
-    private String useable;
 
     public String getId() {
         return this.id;
@@ -136,25 +128,11 @@ public class SysOffice {
         this.address = address;
     }
 
-    public String getDeputyPerson() {
-        return this.deputyPerson;
-    }
-    public void setDeputyPerson(String deputyPerson) {
-        this.deputyPerson = deputyPerson;
-    }
-
-    public BigDecimal getSort() {
+    public String getSort() {
         return this.sort;
     }
-    public void setSort(BigDecimal sort) {
+    public void setSort(String sort) {
         this.sort = sort;
-    }
-
-    public String getPrimaryPerson() {
-        return this.primaryPerson;
-    }
-    public void setPrimaryPerson(String primaryPerson) {
-        this.primaryPerson = primaryPerson;
     }
 
     public String getParentIds() {
@@ -185,10 +163,10 @@ public class SysOffice {
         this.zipCode = zipCode;
     }
 
-    public Date getUpdateDate() {
+    public String getUpdateDate() {
         return this.updateDate;
     }
-    public void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -204,6 +182,13 @@ public class SysOffice {
     }
     public void setCreateBy(String createBy) {
         this.createBy = createBy;
+    }
+
+    public String getUseable() {
+        return this.useable;
+    }
+    public void setUseable(String useable) {
+        this.useable = useable;
     }
 
     public String getPhone() {
@@ -241,10 +226,10 @@ public class SysOffice {
         this.fax = fax;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return this.createDate;
     }
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
@@ -267,13 +252,6 @@ public class SysOffice {
     }
     public void setRemarks(String remarks) {
         this.remarks = remarks;
-    }
-
-    public String getUseable() {
-        return this.useable;
-    }
-    public void setUseable(String useable) {
-        this.useable = useable;
     }
 
 	@Override

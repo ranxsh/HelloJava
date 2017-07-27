@@ -10,13 +10,14 @@ public class SysRoleOffice {
 
 	private static final long serialVersionUID = 1L;
 
+
 	/**
-     * 机构编号
-     */
+	 * 
+	 */
     private String officeId;
 	/**
-     * 角色编号
-     */
+	 * 
+	 */
     private String roleId;
 
 
@@ -26,6 +27,7 @@ public class SysRoleOffice {
     public void setOfficeId(String officeId) {
         this.officeId = officeId;
     }
+
     public String getRoleId() {
         return this.roleId;
     }

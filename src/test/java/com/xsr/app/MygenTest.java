@@ -99,7 +99,7 @@ public class MygenTest {
         group = new GroupTemplate(new File(tplPath));
 //        String rootFilePath = "D:\\temp\\mygen";
         rootFilePath = rootFilePath + "tmp/src" + new Date().getTime();
-        rootFilePath = "D:\\git_ranxsh\\system_manage\\src\\main\\java\\com\\xsr\\sys";
+        rootFilePath = "F:\\git-ranxsh\\system_manage\\src\\main\\java\\com\\xsr\\sys";
         genFolder = new File(rootFilePath);
     }
 

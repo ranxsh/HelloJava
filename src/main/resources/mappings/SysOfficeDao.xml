@@ -1,132 +1,138 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.xsr.sys.dao.SysUserDao">
-    // resultMap
-  	<resultMap id="BaseResultMap" type="com.xsr.sys.entity.SysUser" >
+<mapper namespace="com.xsr.sys.dao.SysOfficeDao">
+    <!-- resultMap -->
+  	<resultMap id="BaseResultMap" type="com.xsr.sys.entity.SysOffice" >
   	    <result column="id" property="id" jdbcType="VARCHAR" />
-  	    <result column="no" property="no" jdbcType="VARCHAR" />
-  	    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
-  	    <result column="company_id" property="companyId" jdbcType="VARCHAR" />
-  	    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
-  	    <result column="photo" property="photo" jdbcType="VARCHAR" />
-  	    <result column="login_date" property="loginDate" jdbcType="TIMESTAMP" />
-  	    <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
-  	    <result column="login_flag" property="loginFlag" jdbcType="VARCHAR" />
-  	    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
-  	    <result column="office_id" property="officeId" jdbcType="VARCHAR" />
+  	    <result column="del_flag" property="delFlag" jdbcType="VARCHAR" />
+  	    <result column="code" property="code" jdbcType="VARCHAR" />
+  	    <result column="address" property="address" jdbcType="VARCHAR" />
+  	    <result column="sort" property="sort" jdbcType="VARCHAR" />
+  	    <result column="parent_ids" property="parentIds" jdbcType="VARCHAR" />
+  	    <result column="area_id" property="areaId" jdbcType="VARCHAR" />
+  	    <result column="type" property="type" jdbcType="VARCHAR" />
+  	    <result column="zip_code" property="zipCode" jdbcType="VARCHAR" />
+  	    <result column="update_date" property="updateDate" jdbcType="VARCHAR" />
+  	    <result column="master" property="master" jdbcType="VARCHAR" />
   	    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
-  	    <result column="password" property="password" jdbcType="VARCHAR" />
-  	    <result column="login_name" property="loginName" jdbcType="VARCHAR" />
-  	    <result column="user_type" property="userType" jdbcType="CHAR" />
+  	    <result column="useable" property="useable" jdbcType="VARCHAR" />
   	    <result column="phone" property="phone" jdbcType="VARCHAR" />
+  	    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+  	    <result column="grade" property="grade" jdbcType="VARCHAR" />
   	    <result column="name" property="name" jdbcType="VARCHAR" />
-  	    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  	    <result column="fax" property="fax" jdbcType="VARCHAR" />
+  	    <result column="create_date" property="createDate" jdbcType="VARCHAR" />
   	    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
   	    <result column="email" property="email" jdbcType="VARCHAR" />
   	    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
   	</resultMap>
-    // Base_Column_List
+    <!-- Base_Column_List -->
     <sql id="Base_Column_List">
         id,
-        no,
         del_flag,
-        company_id,
-        mobile,
-        photo,
-        login_date,
-        login_ip,
-        login_flag,
+        code,
+        address,
+        sort,
+        parent_ids,
+        area_id,
+        type,
+        zip_code,
         update_date,
-        office_id,
+        master,
         create_by,
-        password,
-        login_name,
-        user_type,
+        useable,
         phone,
+        parent_id,
+        grade,
         name,
+        fax,
         create_date,
         update_by,
         email,
         remarks
     </sql>
-    // whereSql
+    <!-- whereSql -->
     <sql id="whereSql">
-        and no = #{no}
         and del_flag = #{delFlag}
-        and company_id = #{companyId}
-        and mobile = #{mobile}
-        and photo = #{photo}
-        and login_date = #{loginDate}
-        and login_ip = #{loginIp}
-        and login_flag = #{loginFlag}
+        and code = #{code}
+        and address = #{address}
+        and sort = #{sort}
+        and parent_ids = #{parentIds}
+        and area_id = #{areaId}
+        and type = #{type}
+        and zip_code = #{zipCode}
         and update_date = #{updateDate}
-        and office_id = #{officeId}
+        and master = #{master}
         and create_by = #{createBy}
-        and password = #{password}
-        and login_name = #{loginName}
-        and user_type = #{userType}
+        and useable = #{useable}
         and phone = #{phone}
+        and parent_id = #{parentId}
+        and grade = #{grade}
         and name = #{name}
+        and fax = #{fax}
         and create_date = #{createDate}
         and update_by = #{updateBy}
         and email = #{email}
         and remarks = #{remarks}
     </sql>
-    //insert
-    <insert id="insert" parameterType="com.xsr.sys.entity.SysUser">
-    insert into sys_user(
+    <!-- insert -->
+    <insert id="insert" parameterType="com.xsr.sys.entity.SysOffice">
+    insert into sys_office(
             <trim prefix="" prefixOverrides=",">
             	<if test="id != null">
             	,id
             	</if>
-            	<if test="no != null">
-            	,no
-            	</if>
             	<if test="delFlag != null">
             	,del_flag
             	</if>
-            	<if test="companyId != null">
-            	,company_id
+            	<if test="code != null">
+            	,code
             	</if>
-            	<if test="mobile != null">
-            	,mobile
+            	<if test="address != null">
+            	,address
             	</if>
-            	<if test="photo != null">
-            	,photo
+            	<if test="sort != null">
+            	,sort
             	</if>
-            	<if test="loginDate != null">
-            	,login_date
+            	<if test="parentIds != null">
+            	,parent_ids
             	</if>
-            	<if test="loginIp != null">
-            	,login_ip
+            	<if test="areaId != null">
+            	,area_id
             	</if>
-            	<if test="loginFlag != null">
-            	,login_flag
+            	<if test="type != null">
+            	,type
+            	</if>
+            	<if test="zipCode != null">
+            	,zip_code
             	</if>
             	<if test="updateDate != null">
             	,update_date
             	</if>
-            	<if test="officeId != null">
-            	,office_id
+            	<if test="master != null">
+            	,master
             	</if>
             	<if test="createBy != null">
             	,create_by
             	</if>
-            	<if test="password != null">
-            	,password
-            	</if>
-            	<if test="loginName != null">
-            	,login_name
-            	</if>
-            	<if test="userType != null">
-            	,user_type
+            	<if test="useable != null">
+            	,useable
             	</if>
             	<if test="phone != null">
             	,phone
             	</if>
+            	<if test="parentId != null">
+            	,parent_id
+            	</if>
+            	<if test="grade != null">
+            	,grade
+            	</if>
             	<if test="name != null">
             	,name
+            	</if>
+            	<if test="fax != null">
+            	,fax
             	</if>
             	<if test="createDate != null">
             	,create_date
@@ -146,53 +152,56 @@
             	<if test="id != null">
             	,#{id}
             	</if>
-            	<if test="no != null">
-            	,#{no}
-            	</if>
             	<if test="delFlag != null">
             	,#{delFlag}
             	</if>
-            	<if test="companyId != null">
-            	,#{companyId}
+            	<if test="code != null">
+            	,#{code}
             	</if>
-            	<if test="mobile != null">
-            	,#{mobile}
+            	<if test="address != null">
+            	,#{address}
             	</if>
-            	<if test="photo != null">
-            	,#{photo}
+            	<if test="sort != null">
+            	,#{sort}
             	</if>
-            	<if test="loginDate != null">
-            	,#{loginDate}
+            	<if test="parentIds != null">
+            	,#{parentIds}
             	</if>
-            	<if test="loginIp != null">
-            	,#{loginIp}
+            	<if test="areaId != null">
+            	,#{areaId}
             	</if>
-            	<if test="loginFlag != null">
-            	,#{loginFlag}
+            	<if test="type != null">
+            	,#{type}
+            	</if>
+            	<if test="zipCode != null">
+            	,#{zipCode}
             	</if>
             	<if test="updateDate != null">
             	,#{updateDate}
             	</if>
-            	<if test="officeId != null">
-            	,#{officeId}
+            	<if test="master != null">
+            	,#{master}
             	</if>
             	<if test="createBy != null">
             	,#{createBy}
             	</if>
-            	<if test="password != null">
-            	,#{password}
-            	</if>
-            	<if test="loginName != null">
-            	,#{loginName}
-            	</if>
-            	<if test="userType != null">
-            	,#{userType}
+            	<if test="useable != null">
+            	,#{useable}
             	</if>
             	<if test="phone != null">
             	,#{phone}
             	</if>
+            	<if test="parentId != null">
+            	,#{parentId}
+            	</if>
+            	<if test="grade != null">
+            	,#{grade}
+            	</if>
             	<if test="name != null">
             	,#{name}
+            	</if>
+            	<if test="fax != null">
+            	,#{fax}
             	</if>
             	<if test="createDate != null">
             	,#{createDate}
@@ -209,60 +218,63 @@
             </trim>
     )
     </insert>
-    // insertBatch
+    <!-- insertBatch -->
     <insert id="insertBatch"  parameterType="list">
-    insert into sys_user(
+    insert into sys_office(
             <trim prefix="" prefixOverrides=",">
             	<if test="id != null">
             	,id
             	</if>
-            	<if test="no != null">
-            	,no
-            	</if>
             	<if test="delFlag != null">
             	,del_flag
             	</if>
-            	<if test="companyId != null">
-            	,company_id
+            	<if test="code != null">
+            	,code
             	</if>
-            	<if test="mobile != null">
-            	,mobile
+            	<if test="address != null">
+            	,address
             	</if>
-            	<if test="photo != null">
-            	,photo
+            	<if test="sort != null">
+            	,sort
             	</if>
-            	<if test="loginDate != null">
-            	,login_date
+            	<if test="parentIds != null">
+            	,parent_ids
             	</if>
-            	<if test="loginIp != null">
-            	,login_ip
+            	<if test="areaId != null">
+            	,area_id
             	</if>
-            	<if test="loginFlag != null">
-            	,login_flag
+            	<if test="type != null">
+            	,type
+            	</if>
+            	<if test="zipCode != null">
+            	,zip_code
             	</if>
             	<if test="updateDate != null">
             	,update_date
             	</if>
-            	<if test="officeId != null">
-            	,office_id
+            	<if test="master != null">
+            	,master
             	</if>
             	<if test="createBy != null">
             	,create_by
             	</if>
-            	<if test="password != null">
-            	,password
-            	</if>
-            	<if test="loginName != null">
-            	,login_name
-            	</if>
-            	<if test="userType != null">
-            	,user_type
+            	<if test="useable != null">
+            	,useable
             	</if>
             	<if test="phone != null">
             	,phone
             	</if>
+            	<if test="parentId != null">
+            	,parent_id
+            	</if>
+            	<if test="grade != null">
+            	,grade
+            	</if>
             	<if test="name != null">
             	,name
+            	</if>
+            	<if test="fax != null">
+            	,fax
             	</if>
             	<if test="createDate != null">
             	,create_date
@@ -284,53 +296,56 @@
             	<if test="id != null">
             	,#{item.id}
             	</if>
-            	<if test="no != null">
-            	,#{item.no}
-            	</if>
             	<if test="delFlag != null">
             	,#{item.delFlag}
             	</if>
-            	<if test="companyId != null">
-            	,#{item.companyId}
+            	<if test="code != null">
+            	,#{item.code}
             	</if>
-            	<if test="mobile != null">
-            	,#{item.mobile}
+            	<if test="address != null">
+            	,#{item.address}
             	</if>
-            	<if test="photo != null">
-            	,#{item.photo}
+            	<if test="sort != null">
+            	,#{item.sort}
             	</if>
-            	<if test="loginDate != null">
-            	,#{item.loginDate}
+            	<if test="parentIds != null">
+            	,#{item.parentIds}
             	</if>
-            	<if test="loginIp != null">
-            	,#{item.loginIp}
+            	<if test="areaId != null">
+            	,#{item.areaId}
             	</if>
-            	<if test="loginFlag != null">
-            	,#{item.loginFlag}
+            	<if test="type != null">
+            	,#{item.type}
+            	</if>
+            	<if test="zipCode != null">
+            	,#{item.zipCode}
             	</if>
             	<if test="updateDate != null">
             	,#{item.updateDate}
             	</if>
-            	<if test="officeId != null">
-            	,#{item.officeId}
+            	<if test="master != null">
+            	,#{item.master}
             	</if>
             	<if test="createBy != null">
             	,#{item.createBy}
             	</if>
-            	<if test="password != null">
-            	,#{item.password}
-            	</if>
-            	<if test="loginName != null">
-            	,#{item.loginName}
-            	</if>
-            	<if test="userType != null">
-            	,#{item.userType}
+            	<if test="useable != null">
+            	,#{item.useable}
             	</if>
             	<if test="phone != null">
             	,#{item.phone}
             	</if>
+            	<if test="parentId != null">
+            	,#{item.parentId}
+            	</if>
+            	<if test="grade != null">
+            	,#{item.grade}
+            	</if>
             	<if test="name != null">
             	,#{item.name}
+            	</if>
+            	<if test="fax != null">
+            	,#{item.fax}
             	</if>
             	<if test="createDate != null">
             	,#{item.createDate}
@@ -348,85 +363,88 @@
     ）
     </foreach>
     </insert>
-    // selectByPrimaryKey
+    <!-- selectByPrimaryKey -->
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
-        from sys_user
+        from sys_office
         where id = #{id,jdbcType=VARCHAR}
     </select>
-    // selectByPrimaryKeyList
+    <!-- selectByPrimaryKeyList -->
     <select id="selectByPrimaryKeyList" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
-        from sys_user
+        from sys_office
         where id in
         <foreach collection="list" item="item" index="index"  open="(" close=")" separator=",">
             #{item,jdbcType=VARCHAR}
         </foreach>
     </select>
-    // findListByEntity
-    <select id="findListByEntity" parameterType="com.xsr.sys.entity.SysUser" resultMap="BaseResultMap" >
+    <!-- findListByEntity -->
+    <select id="findListByEntity" parameterType="com.xsr.sys.entity.SysOffice" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
-        from sys_user
+        from sys_office
         where 1 = 1
         <include refid="whereSql" />
     </select>
-    //updatePrimaryKey
-    <update id="updatePrimaryKey" parameterType="com.xsr.sys.entity.SysUser">
-    update sys_user set
+    <!-- updatePrimaryKey -->
+    <update id="updatePrimaryKey" parameterType="com.xsr.sys.entity.SysOffice">
+    update sys_office set
             <trim prefix="" prefixOverrides=",">
             	<if test="id != null">
             	,id = #{id}
             	</if>
-            	<if test="no != null">
-            	,no = #{no}
-            	</if>
             	<if test="delFlag != null">
             	,del_flag = #{delFlag}
             	</if>
-            	<if test="companyId != null">
-            	,company_id = #{companyId}
+            	<if test="code != null">
+            	,code = #{code}
             	</if>
-            	<if test="mobile != null">
-            	,mobile = #{mobile}
+            	<if test="address != null">
+            	,address = #{address}
             	</if>
-            	<if test="photo != null">
-            	,photo = #{photo}
+            	<if test="sort != null">
+            	,sort = #{sort}
             	</if>
-            	<if test="loginDate != null">
-            	,login_date = #{loginDate}
+            	<if test="parentIds != null">
+            	,parent_ids = #{parentIds}
             	</if>
-            	<if test="loginIp != null">
-            	,login_ip = #{loginIp}
+            	<if test="areaId != null">
+            	,area_id = #{areaId}
             	</if>
-            	<if test="loginFlag != null">
-            	,login_flag = #{loginFlag}
+            	<if test="type != null">
+            	,type = #{type}
+            	</if>
+            	<if test="zipCode != null">
+            	,zip_code = #{zipCode}
             	</if>
             	<if test="updateDate != null">
             	,update_date = #{updateDate}
             	</if>
-            	<if test="officeId != null">
-            	,office_id = #{officeId}
+            	<if test="master != null">
+            	,master = #{master}
             	</if>
             	<if test="createBy != null">
             	,create_by = #{createBy}
             	</if>
-            	<if test="password != null">
-            	,password = #{password}
-            	</if>
-            	<if test="loginName != null">
-            	,login_name = #{loginName}
-            	</if>
-            	<if test="userType != null">
-            	,user_type = #{userType}
+            	<if test="useable != null">
+            	,useable = #{useable}
             	</if>
             	<if test="phone != null">
             	,phone = #{phone}
             	</if>
+            	<if test="parentId != null">
+            	,parent_id = #{parentId}
+            	</if>
+            	<if test="grade != null">
+            	,grade = #{grade}
+            	</if>
             	<if test="name != null">
             	,name = #{name}
+            	</if>
+            	<if test="fax != null">
+            	,fax = #{fax}
             	</if>
             	<if test="createDate != null">
             	,create_date = #{createDate}
@@ -443,13 +461,13 @@
             </trim>
         where id = #{id,jdbcType=VARCHAR}
     </update>
-    //deleteByPrimaryKey
-    <delete id="deleteByPrimaryKey" parameterType="com.xsr.sys.entity.SysUser">
+    <!-- deleteByPrimaryKey -->
+    <delete id="deleteByPrimaryKey" parameterType="com.xsr.sys.entity.SysOffice">
         delete from kq_emp_info
         where id = #{id,jdbcType=VARCHAR}
     </delete>
-    //deleteByEntity
-    <delete id="deleteByEntity" parameterType="com.xsr.sys.entity.SysUser">
+    <!-- deleteByEntity -->
+    <delete id="deleteByEntity" parameterType="com.xsr.sys.entity.SysOffice">
         delete from kq_emp_info
         where 1 = 1
         <include refid="whereSql" />

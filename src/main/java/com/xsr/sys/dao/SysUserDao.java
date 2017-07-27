@@ -1,6 +1,8 @@
 package com.xsr.sys.dao;
 
 import com.xsr.sys.entity.SysUser;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 public interface SysUserDao {

@@ -47,15 +47,15 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- ** 表示多级目录 -->
-		<property name="mapperLocations" value="classpath:mappers/*.xml" />
+		<property name="mapperLocations" value="classpath:mappings/**/*.xml" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 	</bean>
 
 	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.inspur.SSM.dao" />
+		<property name="basePackage" value="com.xsr.sys.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
-
 
 	<!-- 开启事务 -->
 	<bean id="transactionManager"
@@ -65,7 +65,6 @@
 
 	<!-- 开启注解 @Transation -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	
-	
+
 
 </beans>

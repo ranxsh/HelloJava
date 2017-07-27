@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="${package}.dao.${table.upperStartClassName}Dao">
-    // resultMap
+    <!-- resultMap -->
   	<resultMap id="BaseResultMap" type="${package}.entity.${table.upperStartClassName}" >
   	<% if( table.incColumn != null )  {%>
   	    <id column="${table.incColumn.name}" property="${table.incColumn.lowerStartFieldName}" jdbcType="${table.incColumn.jdbcType}" />
@@ -16,7 +16,7 @@
   	    <result column="${column.name}" property="${column.lowerStartFieldName}" jdbcType="${column.jdbcType}" />
   	<% } %>
   	</resultMap>
-    // Base_Column_List
+    <!-- Base_Column_List -->
     <sql id="Base_Column_List"><% if(table.incColumn != null){%>${table.incColumn.name},<%}%>
         <% for(key in table.keys) { %>
             <%if(keyLP.last){%>
@@ -37,7 +37,7 @@
             <%}%>
         <% } %>
     </sql>
-    // whereSql
+    <!-- whereSql -->
     <sql id="whereSql">
         <% if( table.incColumn != null ){%>
         and ${table.incColumn.name} = #{${table.incColumn.lowerStartFieldName}}
@@ -51,7 +51,7 @@
         and ${column.name} = #{${column.lowerStartFieldName}}
         <% } %>
     </sql>
-    //insert
+    <!-- insert -->
     <% if(table.incColumn != null){%>
     <insert id="insert" useGeneratedKeys="true" keyProperty="${table.incColumn.lowerStartFieldName}" parameterType="${package}.entity.${table.upperStartClassName}">
     <%}else{%>
@@ -93,7 +93,7 @@
             </trim>
     )
     </insert>
-    // insertBatch
+    <!-- insertBatch -->
     <% if(table.incColumn != null){%>
     <insert id="insertBatch" useGeneratedKeys="true" keyProperty="${table.incColumn.lowerStartFieldName}" parameterType="list">
     <%}else{%>
@@ -138,7 +138,7 @@
     ）
     </foreach>
     </insert>
-    // selectByPrimaryKey
+    <!-- selectByPrimaryKey -->
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
@@ -149,7 +149,7 @@
         where ${table.keys[0].name} = #{${table.keys[0].lowerStartFieldName},jdbcType=${table.keys[0].jdbcType}}
         <% } %>
     </select>
-    // selectByPrimaryKeyList
+    <!-- selectByPrimaryKeyList -->
     <select id="selectByPrimaryKeyList" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
@@ -163,7 +163,7 @@
         </foreach>
         <% } %>
     </select>
-    // findListByEntity
+    <!-- findListByEntity -->
     <select id="findListByEntity" parameterType="${package}.entity.${table.upperStartClassName}" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
@@ -171,7 +171,7 @@
         where 1 = 1
         <include refid="whereSql" />
     </select>
-    //updatePrimaryKey
+    <!-- updatePrimaryKey -->
     <update id="updatePrimaryKey" parameterType="${package}.entity.${table.upperStartClassName}">
     update ${table.name} set
             <trim prefix="" prefixOverrides=",">
@@ -195,7 +195,7 @@
         where ${table.keys[0].name} = #{${table.keys[0].lowerStartFieldName},jdbcType=${table.keys[0].jdbcType}}
     <% } %>
     </update>
-    //deleteByPrimaryKey
+    <!-- deleteByPrimaryKey -->
     <delete id="deleteByPrimaryKey" parameterType="${package}.entity.${table.upperStartClassName}">
         delete from kq_emp_info
     <% if( table.keys == null || table.keys.~size == 0 ){%>
@@ -204,7 +204,7 @@
         where ${table.keys[0].name} = #{${table.keys[0].lowerStartFieldName},jdbcType=${table.keys[0].jdbcType}}
     <% } %>
     </delete>
-    //deleteByEntity
+    <!-- deleteByEntity -->
     <delete id="deleteByEntity" parameterType="${package}.entity.${table.upperStartClassName}">
         delete from kq_emp_info
         where 1 = 1

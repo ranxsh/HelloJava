@@ -10,27 +10,29 @@ public class SysUserRole {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-     * 角色编号
-     */
-    private String roleId;
-	/**
-     * 用户编号
-     */
-    private String userId;
 
+	/**
+	 * 
+	 */
+    private String userId;
+	/**
+	 * 
+	 */
+    private String roleId;
+
+
+    public String getUserId() {
+        return this.userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getRoleId() {
         return this.roleId;
     }
     public void setRoleId(String roleId) {
         this.roleId = roleId;
-    }
-    public String getUserId() {
-        return this.userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
 	@Override

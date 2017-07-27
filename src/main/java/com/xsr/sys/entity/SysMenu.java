@@ -11,68 +11,68 @@ public class SysMenu {
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * 编号
+     * 
      */
     private String id;
 
 	/**
-	 * 删除标记
+	 * 
 	 */
     private String delFlag;
 	/**
-	 * 图标
+	 * 
 	 */
     private String icon;
 	/**
-	 * 权限标识
+	 * 
 	 */
     private String permission;
 	/**
-	 * 排序
+	 * 
 	 */
-    private BigDecimal sort;
+    private String sort;
 	/**
-	 * 所有父级编号
+	 * 
 	 */
     private String parentIds;
 	/**
-	 * 是否在菜单中显示
+	 * 
 	 */
     private String isShow;
 	/**
-	 * 更新时间
+	 * 
 	 */
-    private Date updateDate;
+    private String updateDate;
 	/**
-	 * 目标
+	 * 
 	 */
     private String target;
 	/**
-	 * 创建者
+	 * 
 	 */
     private String createBy;
 	/**
-	 * 父级编号
+	 * 
 	 */
     private String parentId;
 	/**
-	 * 名称
+	 * 
 	 */
     private String name;
 	/**
-	 * 链接
+	 * 
 	 */
     private String href;
 	/**
-	 * 创建时间
+	 * 
 	 */
-    private Date createDate;
+    private String createDate;
 	/**
-	 * 更新者
+	 * 
 	 */
     private String updateBy;
 	/**
-	 * 备注信息
+	 * 
 	 */
     private String remarks;
 
@@ -104,10 +104,10 @@ public class SysMenu {
         this.permission = permission;
     }
 
-    public BigDecimal getSort() {
+    public String getSort() {
         return this.sort;
     }
-    public void setSort(BigDecimal sort) {
+    public void setSort(String sort) {
         this.sort = sort;
     }
 
@@ -125,10 +125,10 @@ public class SysMenu {
         this.isShow = isShow;
     }
 
-    public Date getUpdateDate() {
+    public String getUpdateDate() {
         return this.updateDate;
     }
-    public void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -167,10 +167,10 @@ public class SysMenu {
         this.href = href;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return this.createDate;
     }
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 

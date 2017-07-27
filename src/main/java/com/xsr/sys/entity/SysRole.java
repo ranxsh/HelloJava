@@ -11,60 +11,56 @@ public class SysRole {
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * 编号
+     * 
      */
     private String id;
 
 	/**
-	 * 删除标记
+	 * 
 	 */
     private String delFlag;
 	/**
-	 * 角色类型
+	 * 
 	 */
     private String roleType;
 	/**
-	 * 更新时间
+	 * 
 	 */
-    private Date updateDate;
+    private String updateDate;
 	/**
-	 * 英文名称
+	 * 
 	 */
     private String enname;
 	/**
-	 * 归属机构
+	 * 
 	 */
     private String officeId;
 	/**
-	 * 创建者
+	 * 
 	 */
     private String createBy;
 	/**
-	 * 是否可用
+	 * 
 	 */
     private String useable;
 	/**
-	 * 是否系统数据
-	 */
-    private String isSys;
-	/**
-	 * 角色名称
+	 * 
 	 */
     private String name;
 	/**
-	 * 创建时间
+	 * 
 	 */
-    private Date createDate;
+    private String createDate;
 	/**
-	 * 更新者
+	 * 
 	 */
     private String updateBy;
 	/**
-	 * 数据范围
+	 * 
 	 */
     private String dataScope;
 	/**
-	 * 备注信息
+	 * 
 	 */
     private String remarks;
 
@@ -89,10 +85,10 @@ public class SysRole {
         this.roleType = roleType;
     }
 
-    public Date getUpdateDate() {
+    public String getUpdateDate() {
         return this.updateDate;
     }
-    public void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -124,13 +120,6 @@ public class SysRole {
         this.useable = useable;
     }
 
-    public String getIsSys() {
-        return this.isSys;
-    }
-    public void setIsSys(String isSys) {
-        this.isSys = isSys;
-    }
-
     public String getName() {
         return this.name;
     }
@@ -138,10 +127,10 @@ public class SysRole {
         this.name = name;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return this.createDate;
     }
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 

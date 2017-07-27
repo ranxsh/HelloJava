@@ -10,13 +10,14 @@ public class SysRoleMenu {
 
 	private static final long serialVersionUID = 1L;
 
+
 	/**
-     * 角色编号
-     */
+	 * 
+	 */
     private String roleId;
 	/**
-     * 菜单编号
-     */
+	 * 
+	 */
     private String menuId;
 
 
@@ -26,6 +27,7 @@ public class SysRoleMenu {
     public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
+
     public String getMenuId() {
         return this.menuId;
     }

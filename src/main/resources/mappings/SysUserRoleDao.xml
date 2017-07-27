@@ -1,112 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.xsr.sys.dao.SysRoleMenuDao">
-    // resultMap
-  	<resultMap id="BaseResultMap" type="com.xsr.sys.entity.SysRoleMenu" >
+<mapper namespace="com.xsr.sys.dao.SysUserRoleDao">
+    <!-- resultMap -->
+  	<resultMap id="BaseResultMap" type="com.xsr.sys.entity.SysUserRole" >
+  	    <result column="user_id" property="userId" jdbcType="VARCHAR" />
   	    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
-  	    <result column="menu_id" property="menuId" jdbcType="VARCHAR" />
   	</resultMap>
-    // Base_Column_List
+    <!-- Base_Column_List -->
     <sql id="Base_Column_List">
-        role_id,
-        menu_id,
+        user_id,
+        role_id
     </sql>
-    // whereSql
+    <!-- whereSql -->
     <sql id="whereSql">
+        and user_id = #{userId}
+        and role_id = #{roleId}
     </sql>
-    //insert
-    <insert id="insert" parameterType="com.xsr.sys.entity.SysRoleMenu">
-    insert into sys_role_menu(
+    <!-- insert -->
+    <insert id="insert" parameterType="com.xsr.sys.entity.SysUserRole">
+    insert into sys_user_role(
             <trim prefix="" prefixOverrides=",">
+            	<if test="userId != null">
+            	,user_id
+            	</if>
             	<if test="roleId != null">
             	,role_id
-            	</if>
-            	<if test="menuId != null">
-            	,menu_id
             	</if>
             </trim>
     )values(
             <trim prefix="" prefixOverrides=",">
+            	<if test="userId != null">
+            	,#{userId}
+            	</if>
             	<if test="roleId != null">
             	,#{roleId}
-            	</if>
-            	<if test="menuId != null">
-            	,#{menuId}
             	</if>
             </trim>
     )
     </insert>
-    // insertBatch
+    <!-- insertBatch -->
     <insert id="insertBatch"  parameterType="list">
-    insert into sys_role_menu(
+    insert into sys_user_role(
             <trim prefix="" prefixOverrides=",">
+            	<if test="userId != null">
+            	,user_id
+            	</if>
             	<if test="roleId != null">
             	,role_id
-            	</if>
-            	<if test="menuId != null">
-            	,menu_id
             	</if>
             </trim>
     )values
     <foreach collection="list" item="item" index="index" separator=",">
     (
         <trim prefix="" prefixOverrides=",">
+            	<if test="userId != null">
+            	,#{item.userId}
+            	</if>
             	<if test="roleId != null">
             	,#{item.roleId}
-            	</if>
-            	<if test="menuId != null">
-            	,#{item.menuId}
             	</if>
         </trim>
     ）
     </foreach>
     </insert>
-    // selectByPrimaryKey
+    <!-- selectByPrimaryKey -->
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
-        from sys_role_menu
-        where role_id = #{roleId,jdbcType=VARCHAR}
+        from sys_user_role
+        where 1 = 2
     </select>
-    // selectByPrimaryKeyList
+    <!-- selectByPrimaryKeyList -->
     <select id="selectByPrimaryKeyList" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
-        from sys_role_menu
-        where role_id in
-        <foreach collection="list" item="item" index="index"  open="(" close=")" separator=",">
-            #{item,jdbcType=VARCHAR}
-        </foreach>
+        from sys_user_role
+        where 1 = 2
     </select>
-    // findListByEntity
-    <select id="findListByEntity" parameterType="com.xsr.sys.entity.SysRoleMenu" resultMap="BaseResultMap" >
+    <!-- findListByEntity -->
+    <select id="findListByEntity" parameterType="com.xsr.sys.entity.SysUserRole" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
-        from sys_role_menu
+        from sys_user_role
         where 1 = 1
         <include refid="whereSql" />
     </select>
-    //updatePrimaryKey
-    <update id="updatePrimaryKey" parameterType="com.xsr.sys.entity.SysRoleMenu">
-    update sys_role_menu set
+    <!-- updatePrimaryKey -->
+    <update id="updatePrimaryKey" parameterType="com.xsr.sys.entity.SysUserRole">
+    update sys_user_role set
             <trim prefix="" prefixOverrides=",">
+            	<if test="userId != null">
+            	,user_id = #{userId}
+            	</if>
             	<if test="roleId != null">
             	,role_id = #{roleId}
             	</if>
-            	<if test="menuId != null">
-            	,menu_id = #{menuId}
-            	</if>
             </trim>
-        where role_id = #{roleId,jdbcType=VARCHAR}
+        where 1 = 2
     </update>
-    //deleteByPrimaryKey
-    <delete id="deleteByPrimaryKey" parameterType="com.xsr.sys.entity.SysRoleMenu">
+    <!-- deleteByPrimaryKey -->
+    <delete id="deleteByPrimaryKey" parameterType="com.xsr.sys.entity.SysUserRole">
         delete from kq_emp_info
-        where role_id = #{roleId,jdbcType=VARCHAR}
+        where 1 = 2
     </delete>
-    //deleteByEntity
-    <delete id="deleteByEntity" parameterType="com.xsr.sys.entity.SysRoleMenu">
+    <!-- deleteByEntity -->
+    <delete id="deleteByEntity" parameterType="com.xsr.sys.entity.SysUserRole">
         delete from kq_emp_info
         where 1 = 1
         <include refid="whereSql" />

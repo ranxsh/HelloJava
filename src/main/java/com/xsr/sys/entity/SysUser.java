@@ -11,88 +11,76 @@ public class SysUser {
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * 编号
+     * 
      */
     private String id;
 
 	/**
-	 * 工号
+	 * 
 	 */
     private String no;
 	/**
-	 * 删除标记
+	 * 
 	 */
     private String delFlag;
 	/**
-	 * 归属公司
+	 * 
 	 */
     private String companyId;
 	/**
-	 * 手机
+	 * 
 	 */
     private String mobile;
 	/**
-	 * 用户头像
-	 */
-    private String photo;
-	/**
-	 * 最后登陆时间
-	 */
-    private Date loginDate;
-	/**
-	 * 最后登陆IP
-	 */
-    private String loginIp;
-	/**
-	 * 是否可登录
+	 * 
 	 */
     private String loginFlag;
 	/**
-	 * 更新时间
+	 * 
 	 */
-    private Date updateDate;
+    private String updateDate;
 	/**
-	 * 归属部门
+	 * 
 	 */
     private String officeId;
 	/**
-	 * 创建者
+	 * 
 	 */
     private String createBy;
 	/**
-	 * 密码
+	 * 
 	 */
     private String password;
 	/**
-	 * 登录名
+	 * 
 	 */
     private String loginName;
 	/**
-	 * 用户类型
+	 * 
 	 */
     private String userType;
 	/**
-	 * 电话
+	 * 
 	 */
     private String phone;
 	/**
-	 * 姓名
+	 * 
 	 */
     private String name;
 	/**
-	 * 创建时间
+	 * 
 	 */
-    private Date createDate;
+    private String createDate;
 	/**
-	 * 更新者
+	 * 
 	 */
     private String updateBy;
 	/**
-	 * 邮箱
+	 * 
 	 */
     private String email;
 	/**
-	 * 备注信息
+	 * 
 	 */
     private String remarks;
 
@@ -131,27 +119,6 @@ public class SysUser {
         this.mobile = mobile;
     }
 
-    public String getPhoto() {
-        return this.photo;
-    }
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public Date getLoginDate() {
-        return this.loginDate;
-    }
-    public void setLoginDate(Date loginDate) {
-        this.loginDate = loginDate;
-    }
-
-    public String getLoginIp() {
-        return this.loginIp;
-    }
-    public void setLoginIp(String loginIp) {
-        this.loginIp = loginIp;
-    }
-
     public String getLoginFlag() {
         return this.loginFlag;
     }
@@ -159,10 +126,10 @@ public class SysUser {
         this.loginFlag = loginFlag;
     }
 
-    public Date getUpdateDate() {
+    public String getUpdateDate() {
         return this.updateDate;
     }
-    public void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -215,10 +182,10 @@ public class SysUser {
         this.name = name;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return this.createDate;
     }
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 

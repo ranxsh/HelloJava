@@ -1,6 +1,8 @@
 package com.xsr.sys.dao;
 
 import com.xsr.sys.entity.SysOffice;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 public interface SysOfficeDao {
